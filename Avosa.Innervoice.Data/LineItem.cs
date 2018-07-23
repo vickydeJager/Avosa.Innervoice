@@ -9,6 +9,15 @@ namespace Avosa.Innervoice.Data
             Items = new List<SubItem>();
         }
 
+        public LineItem(string description, decimal unitCost, int quatity)
+        {
+            Description = description;
+
+            UnitCost = unitCost;
+
+            Quantity = quatity;
+        }
+
         public string Description { get; set; }
 
         public decimal UnitCost { get; set; }
