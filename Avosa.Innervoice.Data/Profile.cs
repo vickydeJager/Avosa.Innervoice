@@ -8,6 +8,8 @@ namespace Avosa.Innervoice.Data
         public Profile()
         {
             ContactDetails = new List<Contact>();
+            Clients = new List<Client>();
+            Products = new List<Product>();
         }
 
         public string Name { get; set; }
@@ -22,6 +24,7 @@ namespace Avosa.Innervoice.Data
 
         public List<Client> Clients { get; set; }
 
-        public List<Quote> Quotes { get; set; }
+        public List<Product> Products { get; set; }
+  
     }
 }

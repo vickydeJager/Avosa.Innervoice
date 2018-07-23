@@ -37,9 +37,8 @@
       <HintPath>..\packages\Unity.5.7.3\lib\net45\CommonServiceLocator.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Lith.DocStore, Version=1.0.6646.20102, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lith.DocStore.1.0.6646.20102\lib\net452\Lith.DocStore.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Lith.DocStore, Version=1.0.6651.23145, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lith.DocStore.1.0.6651.23145\lib\net452\Lith.DocStore.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -89,11 +88,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clients.Designer.cs">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </Compile>
     <Compile Include="ContactDetails.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ContactDetails.Designer.cs">
       <DependentUpon>ContactDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateClient.Designer.cs">
+      <DependentUpon>CreateClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateProduct.Designer.cs">
+      <DependentUpon>CreateProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateQuote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateQuote.Designer.cs">
+      <DependentUpon>CreateQuote.cs</DependentUpon>
     </Compile>
     <Compile Include="IoC.cs" />
     <Compile Include="Main.cs">
@@ -108,16 +131,37 @@
     <Compile Include="CreateProfile.Designer.cs">
       <DependentUpon>CreateProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Products.Designer.cs">
+      <DependentUpon>Products.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Clients.resx">
+      <DependentUpon>Clients.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ContactDetails.resx">
       <DependentUpon>ContactDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateClient.resx">
+      <DependentUpon>CreateClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateProduct.resx">
+      <DependentUpon>CreateProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateProfile.resx">
       <DependentUpon>CreateProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CreateQuote.resx">
+      <DependentUpon>CreateQuote.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products.resx">
+      <DependentUpon>Products.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

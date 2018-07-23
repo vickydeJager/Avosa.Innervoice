@@ -1,10 +1,7 @@
 ﻿using Avosa.Innervoice.Core;
 using Avosa.Innervoice.Data;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
 using System.Windows.Forms;
 
 namespace Avosa.Innervoice.UI
@@ -12,18 +9,16 @@ namespace Avosa.Innervoice.UI
     public partial class CreateProfile : Form
     {
         private readonly IManageProfile _manageProfile;
+        private readonly Profile _profile;
         private string lastLogo;
 
         public CreateProfile(IManageProfile manageProfile)
         {
             _manageProfile = manageProfile;
+            _profile = new Profile();
 
             InitializeComponent();
-
-            Profile = new Profile();
         }
-
-        public Profile Profile { get; set; }
 
         private void CreateProfile_Load(object sender, EventArgs e)
         {
@@ -39,12 +34,12 @@ namespace Avosa.Innervoice.UI
 
         public void Save()
         {
-            Profile.Name = txtCompanyName.Text;
-            Profile.RegistrationNo = txtRegNo.Text;
-            Profile.Address = GetAddress();
-            Profile.LogoID = SaveImage();
+            _profile.Name = txtCompanyName.Text;
+            _profile.RegistrationNo = txtRegNo.Text;
+            _profile.Address = GetAddress();
+            _profile.LogoID = SaveImage();
 
-            _manageProfile.Create(Profile);
+            _manageProfile.Create(_profile);
         }
 
         private Guid SaveImage()
@@ -81,12 +76,11 @@ namespace Avosa.Innervoice.UI
 
             if (addContact.ShowDialog() == DialogResult.OK)
             {
-                Profile.ContactDetails.Add(addContact.Contact);
+                _profile.ContactDetails.Add(addContact.Contact);
                 var item = string.Format("{0}: {1}", addContact.Contact.ContactType, addContact.Contact.Value);
-                lstContactDetails.Items.Add((Profile.ContactDetails.Count - 1).ToString(), item, 0);
+                lstContactDetails.Items.Add((_profile.ContactDetails.Count - 1).ToString(), item, 0);
             }
         }
-
 
         private void btnSelectLogo_Click(object sender, System.EventArgs e)
         {
@@ -100,11 +94,6 @@ namespace Avosa.Innervoice.UI
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-        }
-
         private void btnOK_Click(object sender, EventArgs e)
         {
             Save();
@@ -112,6 +101,11 @@ namespace Avosa.Innervoice.UI
             DialogResult = DialogResult.OK;
 
             this.Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

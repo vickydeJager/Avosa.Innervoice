@@ -9,6 +9,8 @@ namespace Avosa.Innervoice.Core
 
         ItemSet<Client> Clients { get; set; }
 
+        ItemSet<Product> Products { get; set; }
+
         ItemSet<LineItem> LineItems { get; set; }
 
         ItemSet<Profile> Profiles { get; set; }

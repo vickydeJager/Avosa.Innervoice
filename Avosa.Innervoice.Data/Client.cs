@@ -6,13 +6,21 @@ namespace Avosa.Innervoice.Data
     {
         public Client()
         {
-            ContactDetails = new List<Contact>();
+            ContactDetails = new ContactDetails();
+            Quotes = new List<Quote>();
         }
 
         public string Name { get; set; }
 
         public Address Address { get; set; }
 
-        public List<Contact> ContactDetails { get; set; }
+        public ContactDetails ContactDetails { get; set; }
+
+        public List<Quote> Quotes { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0}: {1}", this.Name, this.ContactDetails.GetCellphone());
+        }
     }
 }

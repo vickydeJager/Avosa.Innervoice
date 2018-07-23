@@ -1,5 +1,4 @@
 ﻿using Avosa.Innervoice.Core;
-using Avosa.Innervoice.Data;
 using System.Windows.Forms;
 
 namespace Avosa.Innervoice.UI
@@ -7,7 +6,6 @@ namespace Avosa.Innervoice.UI
     public partial class Main : Form
     {
         private readonly IManageProfile _manageProfile;
-        private Profile _profile;
 
         public Main(IManageProfile manageProfile)
         {
@@ -18,26 +16,24 @@ namespace Avosa.Innervoice.UI
 
         private void Main_Load(object sender, System.EventArgs e)
         {
-            if (!ProfileExists())
+            if (!_manageProfile.HasProfile())
             {
                 var createProfile = IoC.Resolve<CreateProfile>();
-                createProfile.ShowDialog();
             }
 
-
+            lblProfileName.Text = _manageProfile.GetName();
         }
 
-        private bool ProfileExists()
+        private void clientsToolStripMenuItem_Click(object sender, System.EventArgs e)
         {
-            var profile = _manageProfile.GetProfile();
-            var result = false;
+            var clients = IoC.Resolve<Clients>();
+            clients.ShowDialog();
+        }
 
-            if ((result = profile != null))
-            {
-                _profile = profile;
-            }
-
-            return result;
+        private void productsToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            var products = IoC.Resolve<Products>();
+            products.ShowDialog();
         }
     }
 }

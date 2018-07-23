@@ -30,9 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Lith.DocStore, Version=1.0.6646.20102, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Lith.DocStore.1.0.6646.20102\lib\net452\Lith.DocStore.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Lith.DocStore, Version=1.0.6651.23145, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lith.DocStore.1.0.6651.23145\lib\net452\Lith.DocStore.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -48,9 +47,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBoxSource.cs" />
     <Compile Include="EnumFunctions.cs" />
     <Compile Include="Confirmer.cs" />
     <Compile Include="IManageProfile.cs" />
+    <Compile Include="IQuotes.cs" />
     <Compile Include="IStorage.cs" />
     <Compile Include="ManageProfile.cs" />
     <Compile Include="Quotes.cs" />

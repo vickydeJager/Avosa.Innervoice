@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Avosa.Innervoice.Core
 {
-    public class Quotes
+    public class Quotes : IQuotes
     {
         private readonly IStorage _context;
 
@@ -89,5 +89,6 @@ namespace Avosa.Innervoice.Core
             return result;
 
         }
+
     }
 }

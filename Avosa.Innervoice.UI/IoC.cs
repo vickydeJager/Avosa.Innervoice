@@ -15,8 +15,9 @@ namespace Avosa.Innervoice.UI
 
         private static void SetupContainer()
         {
+            _container.RegisterSingleton<IManageProfile, ManageProfile>();
             _container.RegisterType<IStorage, Storage>();
-            _container.RegisterType<IManageProfile, ManageProfile>();
+            _container.RegisterType<IQuotes, Quotes>();
         }
 
         public static T Resolve<T>()
